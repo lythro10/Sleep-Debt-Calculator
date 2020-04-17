@@ -14,15 +14,35 @@ const getSleepHours = day => {
     }else if (day === 'sunday'){
       return 10;
     }
-  };
+  }
+    
+    const getActualSleepHours = () => 
+      // we now call the getSleepHours function above and add each day in the parametre to sum up the days
+      //we will not use the keyword return to get the sum in this kind of function
+    // if we added {} we would add the return statement on the top
+      getSleepHours('monday') + getSleepHours('tuesday') + getSleepHours('wednesday') + getSleepHours('thursday') + getSleepHours('friday') + getSleepHours('saturday') + getSleepHours('sunday');
     
   
-  const getActualSleepHours = () => 
-    // we now call the getSleepHours function above and add each day in the parametre to sum up the days
-    //we will not use the keyword return to get the sum in this kind of function
-  // if we added {} we would add the return statement on the top
-    getSleepHours('monday') + getSleepHours('tuesday') + getSleepHours('wednesday') + getSleepHours('thursday') + getSleepHours('friday') + getSleepHours('saturday') + getSleepHours('sunday');
+    
   
-
   
-console.log(getActualSleepHours())
+  const getIdealSleepHours = () => {
+    let idealHours = 8;
+    return idealHours * 7;
+  }
+  
+  const calculateSleepDebt = () =>{
+   let actualSleepHours = getActualSleepHours();
+   let idealSleepHours = getIdealSleepHours();
+    
+    if(actualSleepHours ===  idealSleepHours){
+      console.log('User got the perfect amount of sleep.')
+    }else if (actualSleepHours > idealSleepHours){
+      console.log('User got more sleep than needed by '+ (acutalSleepHours - idealSleepHours) )
+    }else if (actualSleepHours < idealSleepHours){
+      console.log('The user should get some rest by  ' + (idealSleepHours - actualSleepHours))
+    }
+  }
+  calculateSleepDebt();
+  console.log(getActualSleepHours() + ' are actual sleep hours')
+  console.log(getIdealSleepHours() + ' This is the ideal Sleep Hours')
