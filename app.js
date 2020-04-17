@@ -14,9 +14,15 @@ const getSleepHours = day => {
     }else if (day === 'sunday'){
       return 10;
     }
-  }
+  };
     
-  const getActualSleepHours = () => {
-    
-  }
   
+  const getActualSleepHours = () => 
+    // we now call the getSleepHours function above and add each day in the parametre to sum up the days
+    //we will not use the keyword return to get the sum in this kind of function
+  // if we added {} we would add the return statement on the top
+    getSleepHours('monday') + getSleepHours('tuesday') + getSleepHours('wednesday') + getSleepHours('thursday') + getSleepHours('friday') + getSleepHours('saturday') + getSleepHours('sunday');
+  
+
+  
+console.log(getActualSleepHours())
